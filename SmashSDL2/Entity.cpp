@@ -13,6 +13,13 @@ Entity::Entity(SDL_Renderer* renderer, std::string file)
 
 }
 
+void Entity::calculateNewPosition()
+{
+
+	this->position + speed;
+
+}
+
 void Entity::updatePos(Vector2f v)
 {
 	this->position = v;

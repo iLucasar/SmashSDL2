@@ -10,6 +10,14 @@ struct Vector2f {
 		:x(X), y(Y)
 	{}
 
+	void operator+(Vector2f s)
+	{
+	
+		x += s.x;
+		y += s.y;
+
+	}
+
 	int x;
 
 	int y;

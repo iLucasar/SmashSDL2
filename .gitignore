@@ -398,3 +398,5 @@ SmashSDL2/SmashSDL2.vcxproj
 .vs/SmashSDL2/v16/ipch/AutoPCH/11ec1d9e288544e/ENGINE.ipch
 .vs/SmashSDL2/v16/ipch/AutoPCH/da42ebf88bc40a5d/MAIN.ipch
 .vs/SmashSDL2/v16/ipch/AutoPCH/11ec1d9e288544e/ENGINE.ipch
+*.ipch
+*.ipch

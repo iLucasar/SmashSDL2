@@ -36,9 +36,17 @@ private:
 	// Funzione di update del rect
 	void updateRect();
 
+	Vector2f speed;
+
 public:
 
 	Entity(SDL_Renderer*, std::string);
+
+	// Aggiornamento fisica
+
+	Vector2f* getState() { return &(this->speed); }
+
+	void calculateNewPosition();
 
 	// Funzione di update della posizione
 
