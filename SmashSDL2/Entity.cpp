@@ -21,9 +21,8 @@ void Entity::updatePos(Vector2f v)
 void Entity::updateRect()
 {
 
-	SDL_Rect newRect = SDL_Rect({ this->position.x, this->position.y, this->dimension.x, this->dimension.y });
-
-	this->rect = &newRect;
+	SDL_Rect gino = SDL_Rect({ this->position.x, this->position.y, this->dimension.x, this->dimension.y });
+	this->rect = &(gino);
 
 }
 
