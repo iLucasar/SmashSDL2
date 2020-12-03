@@ -27,17 +27,27 @@ Y8a     a8P  88    `888'    88   d8'        `8b  Y8a     a8P  88        88     Y
 *   Windows.h   : gestione colori
 *   Console.h   : Libreria gestione console di debug
 *   Engine.h    : Engine di gestione
+*   Tile.h      : Sistema tile
+*   Character.h : Sistemma personaggi
+*   Sprite.h    : Sistema sprite
 *   SDL.h       : libreria base sdl motore grafico
 *
 */
 
-#include <iostream>
-#include <Windows.h>
-#include "Console.h"
-#include "Engine.h"
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 
+
+#include <iostream>
+#include <Windows.h>
+#include "Console.h"
+
+#include "Tile.h"
+#include "Entity.h"
+
+#include "Character.h"
+
+#include "Engine.h"
 
 // FILE INCLUSI
 
@@ -60,26 +70,45 @@ int main(int argc, char* argv[])
 
     Engine* GameEngine = new Engine("Gioco", Vector2f(1280, 720));
 
-    // .. Da implementare il gioco :P 
+    // Tile di prova
 
-    int i = 0;
+    GameEngine->addEntity("Character", &(Entity(GameEngine->getRenderer(), "character.png")));
+
+    SDL_Event event;
 
     while (GameEngine->isRunning())
     {
 
         // Update fisica
-        
+
         if (GameEngine->shouldUpdate())
-        { 
-        
-            std::cout << ++i << ": Update!" << std::endl;
-        
+        {
+
+            // Rudimenti di controllo
+
+            SDL_PollEvent(&event);
+
+            switch (event.type) {
+            case SDL_QUIT:
+                GameEngine->stop();
+            case SDL_KEYDOWN:
+                switch (event.key.keysym.sym)
+                {
+                case SDLK_RIGHT:
+                    GameEngine->getEntity("Character")->getPos()->x++;
+                    break;
+                case SDLK_LEFT:
+                    GameEngine->getEntity("Character")->getPos()->x--;
+                    break;
+                }
+                }
+
         }
 
         // Update rendering
 
         GameEngine->GFXUpdate();
-
+        
     }
 
     // Pulizia

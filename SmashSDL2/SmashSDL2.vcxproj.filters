@@ -24,6 +24,15 @@
     <ClCompile Include="Engine.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h">
@@ -36,6 +45,15 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Vector2f.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

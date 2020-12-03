@@ -42,13 +42,63 @@ void Engine::start()
 
 }
 
+void Engine::stop()
+{
+
+    this->running = false;
+
+}
+
 void Engine::GFXUpdate()
 {
 
     SDL_RenderClear(this->RendererPtr);
 
+    for (auto t : this->TilesList)
+        t.second->copyToRenderer();
+
+    for (auto e : this->EntitiesList)
+        e.second->copyToRenderer();
+
     SDL_RenderPresent(this->RendererPtr);
     
+}
+
+void Engine::addTile(std::string name, Tile* newTile)
+{
+
+    this->TilesList.insert({ name, newTile });
+
+}
+
+void Engine::removeTile(std::string name)
+{
+
+    this->TilesList.erase(name);
+
+}
+
+void Engine::addEntity(std::string name, Entity* newTile)
+{
+
+    this->EntitiesList.insert({ name, newTile });
+}
+
+void Engine::removeEntity(std::string name)
+{
+
+    this->EntitiesList.erase(name);
+
+}
+
+Tile* Engine::getTile(std::string name)
+{
+    return this->TilesList.find(name)->second;
+}
+
+Entity* Engine::getEntity(std::string name)
+{
+    return this->EntitiesList.find(name)->second;
 }
 
 bool Engine::shouldUpdate()

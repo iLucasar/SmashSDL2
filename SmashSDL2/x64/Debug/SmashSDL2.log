@@ -1,6 +1,2 @@
-﻿  Engine.cpp
-C:\Users\lucai\source\repos\SmashSDL2\SmashSDL2\Engine.cpp(6,116): warning C4244: 'argomento': conversione da 'double' a 'int'. Possibile perdita di dati.
-C:\Users\lucai\source\repos\SmashSDL2\SmashSDL2\Engine.cpp(6,108): warning C4244: 'argomento': conversione da 'double' a 'int'. Possibile perdita di dati.
-  Main.cpp
-  Generazione del codice in corso...
+﻿  Main.cpp
   SmashSDL2.vcxproj -> C:\Users\lucai\source\repos\SmashSDL2\x64\Debug\SmashSDL2.exe
