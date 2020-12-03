@@ -25,7 +25,8 @@ Y8a     a8P  88    `888'    88   d8'        `8b  Y8a     a8P  88        88     Y
 *
 *   iostream    : per il prompt sulla console di dati di debug
 *   Windows.h   : gestione colori
-*   Console.h    : Libreria gestione console di debug
+*   Console.h   : Libreria gestione console di debug
+*   Engine.h    : Engine di gestione
 *   SDL.h       : libreria base sdl motore grafico
 *
 */
@@ -33,6 +34,7 @@ Y8a     a8P  88    `888'    88   d8'        `8b  Y8a     a8P  88        88     Y
 #include <iostream>
 #include <Windows.h>
 #include "Console.h"
+#include "Engine.h"
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 
@@ -50,19 +52,40 @@ Y8a     a8P  88    `888'    88   d8'        `8b  Y8a     a8P  88        88     Y
 int main(int argc, char* argv[])
 {
 
-    // Aggiunta di messaggio di saluto
+    // Inizializzazione SDL2
 
-    std::cout << "Ciao mondo!\n";
+    Engine::start();
 
-    // Inizializazione SDL2 e gestione errori
+    // Creazione della finestra e del renderer
 
-    Console::generic("Starting SDL2...");
-
-    if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
-        Console::error(std::string("Error code: " + GENERIC_INIT_FAIL));
-    else
-        Console::success("SDL2 initialization complete!");
+    Engine* GameEngine = new Engine("Gioco", Vector2f(1280, 720));
 
     // .. Da implementare il gioco :P 
+
+    int i = 0;
+
+    while (GameEngine->isRunning())
+    {
+
+        // Update fisica
+        
+        if (GameEngine->shouldUpdate())
+        { 
+        
+            std::cout << ++i << ": Update!" << std::endl;
+        
+        }
+
+        // Update rendering
+
+        GameEngine->GFXUpdate();
+
+    }
+
+    // Pulizia
+
+    delete(GameEngine);
+
+    return EXIT_SUCCESS;
 
 }

@@ -146,11 +146,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="Errors.h" />
+    <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
