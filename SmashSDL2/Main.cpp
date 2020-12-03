@@ -37,7 +37,6 @@ Y8a     a8P  88    `888'    88   d8'        `8b  Y8a     a8P  88        88     Y
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 
-
 #include <iostream>
 #include <Windows.h>
 #include "Console.h"
@@ -67,12 +66,14 @@ int main(int argc, char* argv[])
     Engine::start();
 
     // Creazione della finestra e del renderer
-
+    
     Engine* GameEngine = new Engine("Gioco", Vector2f(1280, 720));
 
     // Tile di prova
 
-    GameEngine->addEntity("Character", &(Entity(GameEngine->getRenderer(), "character.png")));
+    Entity testEnt = Entity(GameEngine->getRenderer(), "character.png");
+
+    GameEngine->addEntity("Character", &testEnt);
 
     SDL_Event event;
 
@@ -101,7 +102,7 @@ int main(int argc, char* argv[])
                     GameEngine->getEntity("Character")->getPos()->x--;
                     break;
                 }
-                }
+            }
 
         }
 
@@ -113,7 +114,7 @@ int main(int argc, char* argv[])
 
     // Pulizia
 
-    delete(GameEngine);
+    GameEngine->~Engine();
 
     return EXIT_SUCCESS;
 

@@ -5,7 +5,7 @@ Engine::Engine(std::string wTitle, Vector2f wDim)
 
     this->WindowPtr = SDL_CreateWindow(wTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, wDim.x, wDim.y, SDL_WINDOW_ALLOW_HIGHDPI);
 
-    this->RendererPtr = SDL_CreateRenderer(WindowPtr, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    this->RendererPtr = SDL_CreateRenderer(this->WindowPtr, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     this->running = true;
     this->update = false;
@@ -22,7 +22,6 @@ Engine::Engine(std::string wTitle, Vector2f wDim)
 
 Engine::~Engine()
 {
-
     SDL_DestroyWindow(this->WindowPtr);
     SDL_DestroyRenderer(this->RendererPtr);
 }
