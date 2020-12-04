@@ -58,9 +58,30 @@ void Engine::GFXUpdate()
 
     for (auto e : this->EntitiesList)
         e.second->copyToRenderer();
-
+        
     SDL_RenderPresent(this->RendererPtr);
     
+}
+
+void Engine::PHUpdate()
+{
+
+    for (auto e : this->EntitiesList)
+    {
+        e.second->calculateNewPosition();
+        if (e.second->getPos()->y < (720 - e.second->getDim().y))
+            e.second->getState()->y += 2;
+        else if (e.second->getState()->y > 0)
+        {
+            e.second->getPos()->y = 720 - e.second->getDim().y;
+            e.second->getState()->y = 0;
+        }
+        else
+            e.second->getState()->x *= 0.75;
+         
+        
+    }
+        
 }
 
 void Engine::addTile(std::string name, Tile* newTile)

@@ -96,13 +96,19 @@ int main(int argc, char* argv[])
                 switch (event.key.keysym.sym)
                 {
                 case SDLK_RIGHT:
-                    GameEngine->getEntity("Character")->getPos()->x++;
+                    GameEngine->getEntity("Character")->getState()->operator+(Vector2f(5, 0));
                     break;
                 case SDLK_LEFT:
-                    GameEngine->getEntity("Character")->getPos()->x--;
+                    GameEngine->getEntity("Character")->getState()->operator+(Vector2f(-5, 0));
+                    break;
+                case SDLK_UP:
+                    if(!(GameEngine->getEntity("Character")->getPos()->y < 720 - GameEngine->getEntity("Character")->getDim().y))
+                        GameEngine->getEntity("Character")->getState()->operator+(Vector2f(0, -50));
                     break;
                 }
             }
+
+            GameEngine->PHUpdate();
 
         }
 

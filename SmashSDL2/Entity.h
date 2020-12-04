@@ -45,6 +45,7 @@ public:
 	// Aggiornamento fisica
 
 	Vector2f* getState() { return &(this->speed); }
+	Vector2f getDim() { return this->dimension; }
 
 	void calculateNewPosition();
 

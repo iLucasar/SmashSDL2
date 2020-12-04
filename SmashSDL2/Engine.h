@@ -63,9 +63,11 @@ public:
 	static void start();
 	void stop();
 
-	// Funzione di update della grafica
+	// Funzione di update della grafica e fisica
 
 	void GFXUpdate();
+
+	void PHUpdate();
 
 	// Gestione tile e sprite
 
